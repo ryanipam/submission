@@ -1,0 +1,12 @@
+SELECT ku_order.user_id, ku_user.name, ku_user.email, ku_user.phone, ku_order_detail.delivery_date, ku_product.name, category.name_category, ku_order_detail.quantity, ku_user_location.address, SUM(ku_order_detail.quantity) total
+	FROM `ku_order_detail` JOIN `ku_order` ON ku_order_detail.order_id = ku_order.id 
+    	JOIN `ku_user_location` on ku_user_location.id = ku_order_detail.user_location_id
+        JOIN `ku_user` on ku_user_location.user_id = ku_user.id
+        JOIN `ku_product` on ku_order_detail.product_id = ku_product.id
+        JOIN `ku_product_category` on ku_product.id = ku_product_category.product_id
+        LEFT JOIN (SELECT (ku_product_category.product_id) id_product, GROUP_CONCAT(ku_category.name) name_category FROM `ku_product_category` JOIN `ku_category` ON ku_category.id = ku_product_category.category_id GROUP by ku_product_category.product_id) category ON category.id_product = ku_product_category.product_id 
+   
+WHERE YEAR(ku_order_detail.delivery_date) = 2019 AND MONTH(ku_order_detail.delivery_date) = 09
+GROUP BY ku_order.user_id, ku_order_detail.product_id, ku_order_detail.delivery_date
+
+ORDER BY ku_order_detail.delivery_date, ku_order.user_id

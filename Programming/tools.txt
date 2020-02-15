@@ -1,0 +1,3 @@
+At a glance the reason i choose programming language python because i want learn deeply using python for data science. Even though when in my major i never use python, never implementing data minning using python, and there are several programming language which i often used before (ex: java, php, js), i still choose python because i am now interesting in python and still learn more with this language.
+
+i'm using jupyter anaconda v4.7.10 for my python editor because when i read on several review, yupiter very support for data science. And the version of my python is Python 3.7.3

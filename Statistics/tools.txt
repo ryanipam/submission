@@ -1,0 +1,2 @@
+using jupyter anaconda v4.7.10 for my python editor
+And using Python 3.7.3 for programming language
